@@ -1,6 +1,5 @@
 plugins {
-    id("fabric-loom").version("1.3-SNAPSHOT").apply(false)
-    id("io.github.juuxel.loom-vineflower").version("1.11.0").apply(false)
+    id("fabric-loom").version("1.4-SNAPSHOT").apply(false)
     id("net.kyori.blossom").version("1.3.1").apply(false)
     id("org.ajoberstar.grgit").version("5.2.0")
     id("maven-publish")
@@ -9,6 +8,11 @@ plugins {
 
 preprocess {
     def mc1201 = createNode("1.20.1", 1_20_01, "mojang") // root
+    def mc1202 = createNode("1.20.2", 1_20_02, "mojang")
+    def mc1204 = createNode("1.20.4", 1_20_04, "mojang")
+
+    mc1201.link(mc1202, null)
+    mc1202.link(mc1204, null)
 }
 
 ext {

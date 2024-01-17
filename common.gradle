@@ -1,5 +1,4 @@
 apply(plugin: "fabric-loom")
-apply(plugin: "io.github.juuxel.loom-vineflower")
 apply(plugin: "maven-publish")
 apply(plugin: "net.kyori.blossom")
 apply(plugin: "com.replaymod.preprocess")
@@ -26,6 +25,11 @@ repositories {
     }
 
     maven {
+        name("Masa Maven")
+        url("https://masa.dy.fi/maven")
+    }
+
+    maven {
         name("Jitpack Maven")
         url("https://jitpack.io")
 
@@ -42,6 +46,7 @@ int mcVersion = 1
 preprocess {
     mcVersion = vars.get().get("MC")
     tabIndentation.set(false)
+    patternAnnotation.set("top.hendrixshen.magiclib.compat.preprocess.api.annotation.Preprocess")
 }
 
 // Module, Property prefix, Resolve condition, Transitive dependencies.

@@ -6,7 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.protocol.game.ServerboundCustomPayloadPacket;
+import net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket;
 import net.minecraft.resources.ResourceLocation;
 import top.leavesmc.Bladeren.ModInfo;
 import top.leavesmc.Bladeren.event.DisconnectEvent;
@@ -112,7 +112,7 @@ public class LeavesProtocol {
     }
 
     public static void sendPacket(ResourceLocation id, FriendlyByteBuf data) {
-        localPlayer.connection.send(new ServerboundCustomPayloadPacket(id, data));
+        localPlayer.connection.send(new ServerboundCustomPayloadPacket(data));
     }
 
     public static void sendFeatureModify(String name, CompoundTag tag) {
